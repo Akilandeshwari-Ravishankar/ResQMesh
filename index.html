@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#071f2c" />
+    <meta name="description" content="Offline-first emergency coordination for resilient communities." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .tab{min-width:55px;padding:0 4px;font-size:9px;flex:1}.tab span{font-size:18px}.ai-hero{background:#052631;color:#fff;border-radius:19px;padding:18px;display:flex;gap:12px}.ai-hero>span{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#1b4e59;color:#75e8bf;font-size:21px}.ai-hero b{font-size:14px}.ai-hero p{font-size:12px;line-height:1.45;color:#b5cbcc;margin:5px 0 0}.metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.metric-row div{background:#fff;border:1px solid #dce7e4;border-radius:13px;padding:12px}.metric-row b,.metric-row span{display:block}.metric-row b{font-size:21px}.metric-row span{font-size:10px;color:#69808a;margin-top:3px}.ai-section{margin-top:22px}.recommendation{padding:14px;border-radius:14px;background:#fff2dc;border:1px solid #f4dfba;font-size:13px;color:#624415;line-height:1.5}.recommendation b{display:block;color:#9a6510;font-size:10px;letter-spacing:1px;margin-bottom:5px}.signal-list{display:flex;flex-wrap:wrap;gap:7px}.signal-list span{font-size:11px;color:#286356;background:#e4f4ee;border-radius:999px;padding:7px 9px}.ai-note{font-size:10px;line-height:1.5;color:#69808a;margin:20px 4px}
+    </style>
+    <title>ResQMesh</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">✚</span><span>ResQ<span>Mesh</span></span></div>
+        <button class="connection" id="connectionButton" aria-label="View mesh connection status"><i></i> Mesh online</button>
+      </header>
+
+      <section id="screen-home" class="screen active" aria-label="Home">
+        <div class="hero">
+          <p class="eyebrow">COMMUNITY RESPONSE NETWORK</p>
+          <h1>You're connected.<br /><em>Help travels further.</em></h1>
+          <p class="hero-copy">Your phone can relay critical updates when networks are unreliable.</p>
+          <div class="mesh-status"><span class="pulse"></span><div><strong id="peerCount">12 nearby relays</strong><small id="syncStatus">Connecting to demo hub…</small></div><span class="chevron">›</span></div>
+        </div>
+        <div class="quick-actions">
+          <button class="sos-button" id="sosButton"><span>✦</span><b>Send SOS</b><small>Emergency alert</small></button>
+          <button class="action-card" data-go="report"><span class="action-icon amber">⌁</span><b>Share update</b><small>Hazard or resource</small></button>
+        </div>
+        <section class="section"><div class="section-heading"><h2>Nearby activity</h2><button data-go="feed">View all</button></div><div id="activityList" class="activity-list"></div></section>
+      </section>
+
+      <section id="screen-ai" class="screen" aria-label="AI response brief">
+        <div class="screen-title"><p class="eyebrow">EXPLAINABLE AI TRIAGE</p><h1>Response brief</h1></div>
+        <div class="ai-hero"><span>✦</span><div><b id="aiHeadline">Scanning the local incident stream</b><p id="aiSummary">AI groups incoming reports to help responders decide what to check first.</p></div></div>
+        <div class="metric-row"><div><b id="criticalCount">0</b><span>Critical</span></div><div><b id="hazardCount">0</b><span>Hazards</span></div><div><b id="resourceCount">0</b><span>Resources</span></div></div>
+        <section class="section ai-section"><div class="section-heading"><h2>Recommended next action</h2><button id="refreshAi">Refresh</button></div><div id="aiRecommendation" class="recommendation"></div></section>
+        <section class="section ai-section"><div class="section-heading"><h2>Why the AI flagged this</h2></div><div id="aiSignals" class="signal-list"></div></section>
+        <p class="ai-note">Demo AI uses transparent, local rules—not a medical or emergency-service decision maker. A responder must verify every alert.</p>
+      </section>
+
+      <section id="screen-map" class="screen" aria-label="Map">
+        <div class="screen-title"><p class="eyebrow">LIVE NETWORK VIEW</p><h1>Response map</h1></div>
+        <div class="map-card" role="img" aria-label="Illustrated local map with emergency markers"><div class="map-grid"></div><div class="road r1"></div><div class="road r2"></div><div class="river"></div><button class="map-pin pin-red" data-toast="SOS: Maya L. — 0.4 km"><span>✦</span></button><button class="map-pin pin-amber" data-toast="Road blocked — 0.7 km"><span>!</span></button><button class="map-pin pin-green" data-toast="Water point — 1.2 km"><span>⌂</span></button><div class="you-dot">You</div></div>
+        <div class="legend"><span><i class="legend-red"></i>Emergency</span><span><i class="legend-amber"></i>Hazard</span><span><i class="legend-green"></i>Resource</span></div>
+        <section class="section"><div class="section-heading"><h2>Closest to you</h2><button data-go="feed">Updates</button></div><div id="nearbyList" class="activity-list compact"></div></section>
+      </section>
+
+      <section id="screen-feed" class="screen" aria-label="Updates">
+        <div class="screen-title"><p class="eyebrow">MESH BULLETIN</p><h1>Community updates</h1></div>
+        <div class="filter-row"><button class="filter selected">All</button><button class="filter">Urgent</button><button class="filter">Resources</button><button class="filter">Hazards</button></div>
+        <div id="feedList" class="feed-list"></div>
+      </section>
+
+      <section id="screen-profile" class="screen" aria-label="Profile">
+        <div class="profile-head"><div class="avatar">AK</div><div><p class="eyebrow">YOUR RESPONSE PROFILE</p><h1>Akila</h1><p>Neighbourhood relay · Verified</p></div></div>
+        <div class="readiness"><div><span>Readiness</span><strong>80%</strong></div><div class="readiness-bar"><i></i></div><p>Two items will complete your emergency profile.</p></div>
+        <section class="settings"><h2>Response settings</h2><button class="setting"><span>⌖</span><div><b>Location sharing</b><small>Only while sending an alert</small></div><i class="toggle on"></i></button><button class="setting"><span>⌁</span><div><b>Mesh relay</b><small>Help carry nearby updates</small></div><i class="toggle on"></i></button><button class="setting" id="clearData"><span>◴</span><div><b>Demo data</b><small>Reset local sample updates</small></div><i>›</i></button></section>
+      </section>
+
+      <nav class="tabbar" aria-label="Main navigation"><button class="tab active" data-go="home"><span>⌂</span>Home</button><button class="tab" data-go="map"><span>⌖</span>Map</button><button class="tab" data-go="feed"><span>▤</span>Updates</button><button class="tab" data-go="ai"><span>✦</span>AI brief</button><button class="tab" data-go="profile"><span>◯</span>Profile</button></nav>
+    </main>
+
+    <dialog id="sosDialog"><form method="dialog"><button class="close" value="cancel" aria-label="Close">×</button><div class="dialog-icon danger">✦</div><p class="eyebrow">EMERGENCY ALERT</p><h2>Send an SOS?</h2><p>Your alert will be shared with nearby ResQMesh relays. Use this only for immediate danger or urgent medical help.</p><label>What do you need?<select id="sosNeed"><option>Immediate assistance</option><option>Medical assistance</option><option>Evacuation support</option><option>Other emergency</option></select></label><button id="confirmSos" class="primary" value="default">Send SOS to mesh</button><button class="secondary" value="cancel">Cancel</button></form></dialog>
+    <dialog id="reportDialog"><form method="dialog"><button class="close" value="cancel" aria-label="Close">×</button><div class="dialog-icon">⌁</div><p class="eyebrow">COMMUNITY UPDATE</p><h2>Share what you see</h2><label>Update type<select id="reportType"><option>Hazard</option><option>Available resource</option><option>Safe route</option><option>Community status</option></select></label><label>Details<textarea id="reportDetails" placeholder="Example: fallen tree blocking the north entrance"></textarea></label><button id="submitReport" class="primary" value="default">Share with mesh</button></form></dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

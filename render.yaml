@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: resqmesh-demo
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    renderSubdomainPolicy: enabled
