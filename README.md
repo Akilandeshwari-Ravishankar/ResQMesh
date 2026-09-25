@@ -4,6 +4,8 @@
 
 > Hackathon prototype only. It is not an emergency service and must not be used for a live disaster until it has undergone security, field, accessibility, and operational validation.
 
+![ResQMesh Demo](assets/Home.png)
+
 ## Table of contents
 
 - **1. [Problem statement — why ResQMesh is needed](#1-problem-statement--why-resqmesh-is-needed)**
