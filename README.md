@@ -248,7 +248,7 @@ Today we demonstrate the coordination and explainable-triage layer across two ph
 6. Partner with disaster-management organisations to define gateways, escalation rules, privacy controls, and drills.
 7. Complete independent security, accessibility, reliability, and disaster-safety evaluations before deployment.
 
-### 9.1. Publish a public hackathon demo
+### 9.1. Hackathon Demo
 
 This repository is configured for deployment as a public Node.js web service on Render through [`render.yaml`](render.yaml). The deployment gives judges a public HTTPS link; it does not turn the prototype into a production emergency system.
 
