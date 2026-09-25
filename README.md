@@ -233,7 +233,7 @@ flowchart LR
 7. On phone A, send an SOS and choose **Medical assistance**. Phone B receives it and the AI brief elevates it to **Critical**.
 8. Use **Profile → Demo data** to reset the shared scenario before the next presentation.
 
-Suggested judge narrative: “Today we demonstrate the coordination and explainable-triage layer across two phones. Our production architecture replaces the laptop with encrypted device-to-device, store-and-forward mesh transport, preserving consented incident information until it reaches authorised responders.”
+Today we demonstrate the coordination and explainable-triage layer across two phones. Our production architecture replaces the laptop with encrypted device-to-device, store-and-forward mesh transport, preserving consented incident information until it reaches authorised responders.
 
 ## 9. Path to deployment
 
