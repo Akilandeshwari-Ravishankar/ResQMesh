@@ -28,6 +28,7 @@
   - 7.2. [Recommended production stack](#72-recommended-production-stack)
 - **8. [Two-phone hackathon demonstration](#8-two-phone-hackathon-demonstration)**
 - **9. [Path to deployment](#9-path-to-deployment)**
+  - 9.1. [Hackathon Demo](#91-hackathon-demo)
 - **10. [Safety and product boundaries](#10-safety-and-product-boundaries)**
 
 ## 1. Problem statement — why ResQMesh is needed
