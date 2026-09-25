@@ -1,6 +1,6 @@
 # ResQMesh
 
-**An offline-first, community incident-coordination concept for the first hours of a disaster.**
+**An offline-first, community incident-coordination concept for the first hours of a disaster.**  
 
 > Hackathon prototype only. It is not an emergency service and must not be used for a live disaster until it has undergone security, field, accessibility, and operational validation.
 
@@ -223,6 +223,7 @@ flowchart LR
 ```
 
 ## 8. Two-phone hackathon demonstration
+Link to try out (Prototype): https://resqmesh-a7jy.onrender.com/
 
 1. Connect the laptop and both phones to the same Wi-Fi network.
 2. In this project folder, run `npm start`.
@@ -233,7 +234,7 @@ flowchart LR
 7. On phone A, send an SOS and choose **Medical assistance**. Phone B receives it and the AI brief elevates it to **Critical**.
 8. Use **Profile → Demo data** to reset the shared scenario before the next presentation.
 
-Suggested judge narrative: “Today we demonstrate the coordination and explainable-triage layer across two phones. Our production architecture replaces the laptop with encrypted device-to-device, store-and-forward mesh transport, preserving consented incident information until it reaches authorised responders.”
+Today we demonstrate the coordination and explainable-triage layer across two phones. Our production architecture replaces the laptop with encrypted device-to-device, store-and-forward mesh transport, preserving consented incident information until it reaches authorised responders.
 
 ## 9. Path to deployment
 
