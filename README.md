@@ -58,6 +58,8 @@ The scenario is fictional. The challenge is real: after recent flooding in Nepal
 
 ResQMesh is an offline-first coordination layer. It turns structured community observations into a shared incident picture, prioritises what needs verification, and is designed to preserve messages across communication outages.
 
+ResQMesh is primarily aligned with the United Nations’ Sustainable Development Goals (SDGs), particularly SDG 11 (Sustainable Cities and Communities), SDG 9 (Industry, Innovation and Infrastructure), and SDG 3 (Good Health and Well-being).
+
 ### 2.1. Core user journey
 
 1. A resident creates an **Emergency**, **Hazard**, **Resource**, **Safe Route**, or **Status** update.
